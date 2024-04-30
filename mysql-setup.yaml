@@ -1,0 +1,19 @@
+- name : Configure MySQL db server
+  hosts: db
+  become: yes
+  tasks:
+  - name: Install Mysql Server
+    dnf:
+      name: mysql-server
+      state: latest
+    debug:
+      msg: "MYSQL server installed successfully"
+
+  - name: Start & enable Mysql Server
+    dnf:
+      name: mysql-server
+      state: started
+      enabled: yes
+    debug:
+      msg: "MYSQL server Started & enabled successfully"
+  
