@@ -3,17 +3,19 @@
   become: yes
   tasks:
   - name: Install Mysql Server
+    debug:
+      msg: "MYSQL server installed successfully"
     dnf:
       name: mysql-server
       state: latest
-    debug:
-      msg: "MYSQL server installed successfully"
+    
 
   - name: Start & enable Mysql Server
+    debug:
+      msg: "MYSQL server Started & enabled successfully"
     service:
       name: mysqld
       state: started
       enabled: yes
-    debug:
-      msg: "MYSQL server Started & enabled successfully"
+    
   
