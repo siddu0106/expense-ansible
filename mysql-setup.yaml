@@ -29,8 +29,10 @@
       - cryptography # if u want to use pwd in command line we have to use this one 
       executable: pip3.9 # based on ansible version. If python version is 3.9 then use 3.9     
 
+  # u can check ansible mysql setup module in google
+
   - name: Check pwd is setup or not 
-    community.mysql.mysql_info:
+    community.mysql.mysql_info:  
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.projexpenses78.online
@@ -50,7 +52,7 @@
  
   - name: Setup mysql root pwd
     command: mysql_secure_installation --set-root-pass ExpenseApp@1
-    when: mysql_connection_output.failed is true
+    when: mysql_connection_output.failed is true # don't give {{}} in when condition
 
 
 
