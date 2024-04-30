@@ -10,8 +10,8 @@
       msg: "MYSQL server installed successfully"
 
   - name: Start & enable Mysql Server
-    dnf:
-      name: mysql-server
+    service:
+      name: mysqld
       state: started
       enabled: yes
     debug:
