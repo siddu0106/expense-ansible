@@ -21,3 +21,11 @@
     debug:
       msg: "MYSQL server Started & enabled successfully"
   
+
+  - name: Collect all info except settings and users by root
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.projexpenses78.online
+      filter: version # how u check version of anything ansible --version/mysql-server --version. If it's shows something then success
+    
