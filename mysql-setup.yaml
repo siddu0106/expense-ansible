@@ -27,7 +27,7 @@
       name: #list
       - PyMySQL
       - cryptography # if u want to use pwd in command line we have to use this one 
-     executable: pip3.9 # based on ansible version. If python version is 3.9 then use 3.9     
+      executable: pip3.9 # based on ansible version. If python version is 3.9 then use 3.9     
 
   - name: Check pwd is setup or not 
     community.mysql.mysql_info:
