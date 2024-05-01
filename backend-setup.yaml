@@ -29,5 +29,6 @@
 
   - name: Unzip the file 
     ansible.builtin.unarchive: 
-      src: /tmp/backend.zip
+      src: /tmp/backend.zip # by default it will check in ansible server this path exist or not. but we have to tell it's in remote
       dest: /app
+      remote_src: yes # We use this argument to tell src path in remote only not in ansible server
