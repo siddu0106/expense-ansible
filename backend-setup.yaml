@@ -61,3 +61,13 @@
       target: /app/schema/backend.sql # which file are u dumping into the db server
       state: import # state: dump - we have to use this when we take full db backup and dumping to new db
       name: all #we have to use name argument, if u use state as dump/import
+
+  - name: daemon reload 
+    ansible.builtin.systemd_service: 
+      daemon_reload: true
+
+  - name: Start & Enable backend service
+    ansible.builtin.service:
+      name: backend
+      state: started
+      enabled: yes
