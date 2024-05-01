@@ -16,3 +16,8 @@
   - name: Create User 
     ansible.builtin.user: 
       name: expense
+
+  - name: Create directory 
+    ansible.builtin.file: 
+      path: /app # where u want to create provide path
+      state: directory # if we mention directory then only it will create a directory. otherwise by default file will be created
