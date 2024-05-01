@@ -27,8 +27,13 @@
       url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip  #provide the url, it will download the file
       dest: /tmp/backend.zip  # store the file here 
 
-  - name: Unzip the file 
+  - name: Unzip the file which is present in remote server
     ansible.builtin.unarchive: 
       src: /tmp/backend.zip # by default it will check in ansible server this path exist or not. but we have to tell it's in remote
       dest: /app
       remote_src: yes # We use this argument to tell src path in remote only not in ansible server
+
+  - name: Install npm dependencies
+    command: npm install
+    args:
+      chdir: /app #before running the command it will check the directory and run there 
